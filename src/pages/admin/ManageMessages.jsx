@@ -7,25 +7,24 @@ import {
 
 function ManageMessages() {
   const [messages, setMessages] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   const refreshMessages = () =>
     getMessages().then((data) => {
       setMessages(data);
-      setLoading(false);
     });
 
   useEffect(() => {
     getMessages().then((data) => {
       setMessages(data);
-      setLoading(false);
     });
   }, []);
 
-  if (loading)
+  if (!messages)
     return (
       <div className="flex justify-center py-12">
-        <div className="w-8 h-8 rounded-full border-4 border-cyan-500 border-t-transparent animate-spin" />
+        <div className="w-8 h-8 rounded-full border-4 border-cyan-500 border-t-transparent animate-spin">
+          Loading...
+        </div>
       </div>
     );
 
