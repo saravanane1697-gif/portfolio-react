@@ -58,25 +58,25 @@ const GitHubIcon = () => (
 
 const contactLinks = [
   {
-    key: "Email",
+    key: "email",
     icon: <MailIcon />,
     label: "Email",
     href: (val) => `mailto:${val}`,
   },
   {
-    key: "Phone",
+    key: "phone",
     icon: <PhoneIcon />,
     label: "Phone",
     href: (val) => `tel:${val}`,
   },
   {
-    key: "LinkedInUrl",
+    key: "linkedInUrl",
     icon: <LinkedInIcon />,
     label: "LinkedIn",
     href: (val) => val,
   },
   {
-    key: "GitHubUrl",
+    key: "gitHubUrl",
     icon: <GitHubIcon />,
     label: "GitHub",
     href: (val) => val,
@@ -179,12 +179,12 @@ function About() {
                   key={key}
                   href={href(value)}
                   target={
-                    key === "LinkedInUrl" || key === "GitHubUrl"
+                    key === "linkedInUrl" || key === "gitHubUrl"
                       ? "_blank"
                       : undefined
                   }
                   rel={
-                    key === "LinkedInUrl" || key === "GitHubUrl"
+                    key === "linkedInUrl" || key === "gitHubUrl"
                       ? "noopener noreferrer"
                       : undefined
                   }
