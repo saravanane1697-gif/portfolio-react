@@ -4,6 +4,7 @@ import { authHeader } from "./authHeader";
 const API_URL = import.meta.env.VITE_API_URL;
 
 export const getProfile = async () => {
+  console.log("API_URL:", import.meta.env.VITE_API_URL);
   const response = await axios.get(`${API_URL}/profile`);
   return response.data;
 };
