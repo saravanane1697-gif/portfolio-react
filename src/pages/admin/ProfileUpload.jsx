@@ -25,7 +25,7 @@ function ProfileUpload() {
       console.log(result);
       setStatus("success");
       setMessage("Profile photo uploaded successfully!");
-      setTimeout(() => setStatus("idle"), 3000);
+      setTimeout(() => window.location.reload(), 1500); // reloads Home with new image
     } catch (error) {
       setStatus("error");
       setMessage(error.response?.data || error.message || "Upload failed.");

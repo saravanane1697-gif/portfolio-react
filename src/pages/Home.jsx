@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getProfile } from "../services/profileService";
+import { getProfile, API_BASE } from "../services/profileService";
 
 const skills = ["React", "ASP.NET Core Web API", "SQL Server"];
 
@@ -46,7 +46,7 @@ function Home() {
         >
           <div className="absolute -inset-1 rounded-full bg-linear-to-tr from-cyan-500 to-indigo-500 opacity-60 blur-sm group-hover:opacity-100 transition duration-500" />
           <img
-            src={`https://localhost:7090${profile.imageUrl}`}
+            src={`${API_BASE}${profile.imageUrl}`}
             alt={profile.name}
             className="relative w-36 h-36 md:w-44 md:h-44 rounded-full object-cover border-2 border-gray-900 shadow-2xl"
           />
@@ -92,29 +92,38 @@ function Home() {
         <div
           className={`transition-all duration-700 delay-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
         >
-          <a
-            href={`https://localhost:7090${profile.resumeUrl}`}
-            target="_blank"
-            rel="noreferrer"
-            className="group inline-flex items-center gap-3 px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide
+          {profile.resumeUrl ? (
+            <a
+              href={`${API_BASE}${profile.resumeUrl}`}
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex items-center gap-3 px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide
               bg-linear-to-r from-cyan-500 to-indigo-500 text-white shadow-lg shadow-cyan-500/25
               hover:shadow-cyan-500/50 hover:scale-105 active:scale-100 transition-all duration-300"
-          >
-            <svg
-              className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-0.5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M8 12l4 4m0 0l4-4m-4 4V4"
-              />
-            </svg>
-            Download Resume
-          </a>
+              <svg
+                className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-0.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M8 12l4 4m0 0l4-4m-4 4V4"
+                />
+              </svg>
+              Download Resume
+            </a>
+          ) : (
+            <button
+              disabled
+              className="group inline-flex items-center gap-3 ... opacity-50 cursor-not-allowed"
+            >
+              Resume Not Available
+            </button>
+          )}
         </div>
 
         {/* Scroll hint */}
