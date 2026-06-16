@@ -96,6 +96,7 @@ function Home() {
             <a
               href={profile.resumeUrl}
               target="_blank"
+              download="Saravanan_Resume.pdf"
               rel="noreferrer"
               className="group inline-flex items-center gap-3 px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide
               bg-linear-to-r from-cyan-500 to-indigo-500 text-white shadow-lg shadow-cyan-500/25
