@@ -7,13 +7,6 @@ function Home() {
   const [profile, setProfile] = useState(null);
   const [visible, setVisible] = useState(false);
 
-  // Helper to force Cloudinary PDF download
-  const getDownloadUrl = (url) => {
-    if (!url) return null;
-    // Change /upload/ to /upload/fl_attachment/ to force download
-    return url.replace("/upload/", "/upload/fl_attachment/");
-  };
-
   useEffect(() => {
     const load = async () => {
       const data = await getProfile();
@@ -101,7 +94,8 @@ function Home() {
         >
           {profile.resumeUrl ? (
             <a
-              href={getDownloadUrl(profile.resumeUrl)}
+              href={profile.resumeUrl}
+              download
               target="_blank"
               rel="noreferrer"
               className="group inline-flex items-center gap-3 px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide
