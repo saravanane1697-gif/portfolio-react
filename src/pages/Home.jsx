@@ -94,13 +94,15 @@ function Home() {
         >
           {profile.resumeUrl ? (
             <a
-              href={profile.resumeUrl}
-              download
+              href={profile.resumeUrl.replace(
+                "/upload/",
+                "/upload/fl_attachment/",
+              )}
               target="_blank"
               rel="noreferrer"
               className="group inline-flex items-center gap-3 px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide
-      bg-linear-to-r from-cyan-500 to-indigo-500 text-white shadow-lg shadow-cyan-500/25
-      hover:shadow-cyan-500/50 hover:scale-105 active:scale-100 transition-all duration-300"
+    bg-linear-to-r from-cyan-500 to-indigo-500 text-white shadow-lg shadow-cyan-500/25
+    hover:shadow-cyan-500/50 hover:scale-105 active:scale-100 transition-all duration-300"
             >
               <svg
                 className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-0.5"
