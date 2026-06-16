@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getProfile, API_BASE } from "../services/profileService";
+import { getProfile } from "../services/profileService";
 
 const skills = ["React", "ASP.NET Core Web API", "SQL Server"];
 
@@ -46,7 +46,7 @@ function Home() {
         >
           <div className="absolute -inset-1 rounded-full bg-linear-to-tr from-cyan-500 to-indigo-500 opacity-60 blur-sm group-hover:opacity-100 transition duration-500" />
           <img
-            src={`${API_BASE}${profile.imageUrl}`}
+            src={profile.imageUrl}
             alt={profile.name}
             className="relative w-36 h-36 md:w-44 md:h-44 rounded-full object-cover border-2 border-gray-900 shadow-2xl"
           />
@@ -94,7 +94,7 @@ function Home() {
         >
           {profile.resumeUrl ? (
             <a
-              href={`${API_BASE}${profile.resumeUrl}`}
+              href={profile.resumeUrl}
               target="_blank"
               rel="noreferrer"
               className="group inline-flex items-center gap-3 px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide
