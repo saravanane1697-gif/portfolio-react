@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getProfile } from "../services/profileService";
+import { getProfile, API_BASE } from "../services/profileService";
 
 const skills = ["React", "ASP.NET Core Web API", "SQL Server"];
 
@@ -94,10 +94,7 @@ function Home() {
         >
           {profile.resumeUrl ? (
             <a
-              href={profile.resumeUrl.replace(
-                "/upload/",
-                "/upload/fl_attachment/",
-              )}
+              href={`${API_BASE}/api/profile/download-resume`}
               target="_blank"
               rel="noreferrer"
               className="group inline-flex items-center gap-3 px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide
@@ -122,7 +119,7 @@ function Home() {
           ) : (
             <button
               disabled
-              className="group inline-flex items-center gap-3 ... opacity-50 cursor-not-allowed"
+              className="group inline-flex items-center gap-3 px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide bg-white/10 text-gray-500 opacity-50 cursor-not-allowed"
             >
               Resume Not Available
             </button>
