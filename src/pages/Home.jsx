@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getProfile, API_BASE } from "../services/profileService";
+import { getProfile } from "../services/profileService";
 
 const skills = ["React", "ASP.NET Core Web API", "SQL Server"];
 
@@ -94,7 +94,7 @@ function Home() {
         >
           {profile.resumeUrl ? (
             <a
-              href={`${API_BASE}/api/profile/download-resume`}
+              href={profile.resumeUrl}
               target="_blank"
               rel="noreferrer"
               className="group inline-flex items-center gap-3 px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide
