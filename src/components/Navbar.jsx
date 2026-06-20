@@ -19,7 +19,7 @@ function Navbar() {
     { to: "/projects", label: "Projects" },
     { to: "/experience", label: "Experience" },
     { to: "/contact", label: "Contact" },
-    { to: "admin/manageall", label: "Admin" },
+    { to: "/admin/manageall", label: "Admin" }, // ← fixed missing leading slash
   ];
 
   const isActive = (path) =>
@@ -68,24 +68,32 @@ function Navbar() {
           aria-label="Toggle menu"
         >
           <span
-            className={`block w-6 h-0.5 bg-gray-300 transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
+            className={`block w-6 h-0.5 bg-gray-300 transition-all duration-300 ${
+              menuOpen ? "rotate-45 translate-y-2" : ""
+            }`}
           />
           <span
-            className={`block w-6 h-0.5 bg-gray-300 transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
+            className={`block w-6 h-0.5 bg-gray-300 transition-all duration-300 ${
+              menuOpen ? "opacity-0" : ""
+            }`}
           />
           <span
-            className={`block w-6 h-0.5 bg-gray-300 transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+            className={`block w-6 h-0.5 bg-gray-300 transition-all duration-300 ${
+              menuOpen ? "-rotate-45 -translate-y-2" : ""
+            }`}
           />
         </button>
       </div>
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ${
-          menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        className={`md:hidden transition-all duration-300 ${
+          menuOpen
+            ? "max-h-screen opacity-100"
+            : "max-h-0 opacity-0 overflow-hidden"
         }`}
       >
-        <div className="bg-gray-950/98 backdrop-blur-md border-t border-white/10 px-6 py-4 flex flex-col gap-1">
+        <div className="bg-gray-950/98 backdrop-blur-md border-t border-white/10 px-6 py-4 flex flex-col gap-1 overflow-y-auto max-h-[calc(100vh-72px)]">
           {links.map(({ to, label }) => (
             <Link
               key={to}
