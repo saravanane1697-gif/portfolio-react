@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { getSkills } from "../services/skillService";
 
 const categoryColors = {
-  Frontend: "from-cyan-500/20 to-cyan-500/5 border-cyan-500/30 text-cyan-300",
+  Frontend: "from-cyan-500/20 to-cyan-500/5 border-cyan-500/30 text-cyan-400",
   Backend:
-    "from-indigo-500/20 to-indigo-500/5 border-indigo-500/30 text-indigo-300",
+    "from-indigo-500/20 to-indigo-500/5 border-indigo-500/30 text-indigo-400",
   Database:
-    "from-violet-500/20 to-violet-500/5 border-violet-500/30 text-violet-300",
+    "from-violet-500/20 to-violet-500/5 border-violet-500/30 text-violet-400",
   DevOps:
-    "from-emerald-500/20 to-emerald-500/5 border-emerald-500/30 text-emerald-300",
+    "from-emerald-500/20 to-emerald-500/5 border-emerald-500/30 text-emerald-400",
   default: "from-gray-500/20 to-gray-500/5 border-gray-500/30 text-gray-300",
 };
 

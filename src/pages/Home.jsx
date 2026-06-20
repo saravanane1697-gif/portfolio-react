@@ -57,7 +57,7 @@ function Home() {
         <div
           className={`transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
         >
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight bg-linear-to-r from-white via-cyan-100 to-cyan-300 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight bg-linear-to-r from-white via-white to-cyan-300 bg-clip-text text-transparent">
             {profile.name}
           </h1>
         </div>
